@@ -188,7 +188,8 @@ class Menu extends HtmlController
             return call_user_func_array([$this, 'validateitem'], $params);
         }
 
-        $path = html_entity_decode(implode('/', $path), ENT_COMPAT | ENT_HTML5, 'UTF-8');
+        //$path = html_entity_decode(implode('/', $path), ENT_COMPAT | ENT_HTML5, 'UTF-8');
+        $path = urldecode(implode('/', $path));
 
         // Load the menu.
         $resource = $this->loadResource($id);
